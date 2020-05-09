@@ -1,3 +1,0 @@
-/Users/liyong/Code/Opencv/open_cv_demo/build/CMakeFiles/rebuild_cache.dir
-/Users/liyong/Code/Opencv/open_cv_demo/build/CMakeFiles/edit_cache.dir
-/Users/liyong/Code/Opencv/open_cv_demo/build/CMakeFiles/open_cv_demo.dir
