@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/Users/liyong/Code/Opencv/open_cv_demo/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -I/Users/liyong/Code/Opencv/open_cv_demo/./src -isystem /usr/local/include/opencv4   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -std=gnu++11 -o CMakeFiles/open_cv_demo.dir/src/main.cpp.o -c /Users/liyong/Code/Opencv/open_cv_demo/src/main.cpp",
+  "file": "/Users/liyong/Code/Opencv/open_cv_demo/src/main.cpp"
+},
+{
+  "directory": "/Users/liyong/Code/Opencv/open_cv_demo/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -I/Users/liyong/Code/Opencv/open_cv_demo/./src -isystem /usr/local/include/opencv4   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -std=gnu++11 -o CMakeFiles/open_cv_demo.dir/src/resize_img.cpp.o -c /Users/liyong/Code/Opencv/open_cv_demo/src/resize_img.cpp",
+  "file": "/Users/liyong/Code/Opencv/open_cv_demo/src/resize_img.cpp"
+},
+{
+  "directory": "/Users/liyong/Code/Opencv/open_cv_demo/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -I/Users/liyong/Code/Opencv/open_cv_demo/./src -isystem /usr/local/include/opencv4   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -std=gnu++11 -o CMakeFiles/open_cv_demo.dir/src/show_img.cpp.o -c /Users/liyong/Code/Opencv/open_cv_demo/src/show_img.cpp",
+  "file": "/Users/liyong/Code/Opencv/open_cv_demo/src/show_img.cpp"
+}
+]
