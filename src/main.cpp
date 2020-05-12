@@ -22,14 +22,18 @@ int main(int argc,char *argv[])
     cout << "Show original image" << endl;
     ShowImage(Image, "Original Image");
 
-    Mat ResizeImage;
     //Resize a image
+    Mat ResizeImage;
     cout << "Resize original image" << endl;
     ResizeImage = ResizeImg(Image, 0.5, 0.5);
 
     //Show resize image
     cout << "Show resize image" << endl;
     ShowImage(ResizeImage, "Resize Image");
+
+    //Change image threshold and show the difference
+    Image = imread(argv[1], IMREAD_UNCHANGED);
+    ShowImageWithThresholdControl(Image);
 
     return 0;
 }

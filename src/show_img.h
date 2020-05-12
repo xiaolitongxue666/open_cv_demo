@@ -15,5 +15,6 @@ using namespace std;
 using namespace cv;
 
 void ShowImage(Mat Image, const String & WindowName);
+void ShowImageWithThresholdControl(Mat Image);
 
 #endif
