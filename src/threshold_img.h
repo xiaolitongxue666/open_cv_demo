@@ -12,6 +12,6 @@
 using namespace std;
 using namespace cv;
 
-double ThresholdImg(Mat SrcImage, Mat DstImage, double Threshold, double MaxThreshold, int ThresholdType);
+double ThresholdImg(Mat SrcImage, Mat & DstImage, double Threshold, double MaxThreshold, int ThresholdType);
 
 #endif
