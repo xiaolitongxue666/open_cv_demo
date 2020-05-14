@@ -1,13 +1,14 @@
 #include "show_img.h"
 #include "resize_img.h"
 #include "threshold_img.h"
-#include "erosion_and_Dilation.h"
+#include "erosion_and_dilation.h"
+#include "detect_skew_angle.h"
+#include "rotation_image.h"
 
 int main(int argc,char *argv[])
 {
+    // Read a original image
     Mat OriginalImage;
-
-    //Read original image
     cout << "Read original image unchanged" << endl;
     OriginalImage = imread(argv[1], IMREAD_UNCHANGED);
     if( !OriginalImage.data )
@@ -15,47 +16,44 @@ int main(int argc,char *argv[])
         cout << "Read a image fail !" << endl;
         return -1;
     }
-    else
-    {
-        cout << "Read a image success ." << endl;
-    }
-
-    //Show a image
-    cout << "Show original image" << endl;
     ShowImage(OriginalImage, "Original Image");
 
+    /* -------------------------------------------------------------- */
+
     //Resize a image
-    //Mat ResizeImage;
-    //cout << "Resize original image" << endl;
-    //ResizeImage = ResizeImg(OriginalImage, 0.5, 0.5);
+#if 0
+    Mat ResizeImage;
+    cout << "Resize original image" << endl;
+    ResizeImage = ResizeImg(OriginalImage, 0.5, 0.5);//Scaling method
+    ShowImage(ResizeImage, "Resize Image");
+#endif
 
-    //Show resize image
-    //cout << "Show resize image" << endl;
-    //ShowImage(ResizeImage, "Resize Image");
+    /* -------------------------------------------------------------- */
 
-    //Change image threshold and show the difference
-    //ShowImageWithThresholdControl(OriginalImage);//test
+    //Use threshold and show the difference
+#if 0
+    //ShowImageWithThresholdControl(OriginalImage);//Use this function to choose adjust parameter
     Mat GrayImage;
     Mat ThresholdImage;
     Mat &ImageQuote = ThresholdImage;
-    cvtColor( OriginalImage, GrayImage, COLOR_BGR2GRAY ); // Convert the image to Gray
-    //ShowImage(GrayImage, "Gray Image");
+    cvtColor( OriginalImage, GrayImage, COLOR_BGR2GRAY ); // Convert the image to gray
+    ShowImage(GrayImage, "Gray Image");
     ThresholdImg(GrayImage, ImageQuote, 174, 255, THRESH_BINARY_INV);
     ShowImage(ThresholdImage, "Threshold Image");
+#endif
 
-    //Change erosion and dilation and show the difference
-    //cout << "Read original image in color" << endl;
-    //OriginalImage = imread(argv[1], IMREAD_COLOR);
-    //if( !OriginalImage.data )
-    //{
-    //    cout << "Read a image fail !" << endl;
-    //    return -1;
-    //}
-    //else
-    //{
-    //    cout << "Read a image success ." << endl;
-    //}
-    //ShowImageWithErosionAndDilationControl( OriginalImage );//test
+    /* -------------------------------------------------------------- */
+
+    //Use erosion and dilation and show the difference
+#if 0
+    cout << "Read original image in color" << endl;
+    OriginalImage = imread(argv[1], IMREAD_COLOR);
+    if( !OriginalImage.data )
+    {
+        cout << "Read a color image fail !" << endl;
+        return -1;
+    }
+    ShowImageWithErosionAndDilationControl( OriginalImage );//Use this function to choose adjust parameter
     Mat ErosionSrcImage;
     Mat DilationSrcImage;
     Mat &ErosionImageQuote = ErosionSrcImage;
@@ -64,6 +62,15 @@ int main(int argc,char *argv[])
     ShowImage(ErosionSrcImage, "Erosion Image");
     Dilate(OriginalImage, DilationImageQuote, 0, 0);
     ShowImage(DilationSrcImage, "Dilation Image");
+#endif
+
+    /* -------------------------------------------------------------- */
+
+    //Detect image skew angle and rotation it
+    double SkewAngle = CalculateSkew(OriginalImage);
+    RotationImage(OriginalImage, SkewAngle);
+
+    /* -------------------------------------------------------------- */
 
     return 0;
 }
