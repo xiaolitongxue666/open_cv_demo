@@ -1,8 +1,8 @@
 /* File: ErosionAndDilation.h */
 /* Author: xiaoli */
 /* Date: Wed May 13 23:21:55 CST 2020 */
-#ifndef _EROSION_ANDD_ILATION_H_
-#define _EROSION_ANDD_ILATION_H_
+#ifndef _EROSION_AND_DILATION_H_
+#define _EROSION_AND_DILATION_H_
 
 #include "opencv2/imgproc.hpp"
 #include "opencv2/highgui.hpp"

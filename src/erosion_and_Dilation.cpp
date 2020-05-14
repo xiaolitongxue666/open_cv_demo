@@ -1,7 +1,7 @@
 /* File: ErosionAndDilation.cpp */
 /* Author: xiaoli */
 /* Date: Wed May 13 23:21:52 CST 2020 */
-#include "erosion_and_Dilation.h"
+#include "erosion_and_dilation.h"
 
 void Erode(Mat SrcImage, Mat & DstImage, int ErosionType, int ErosionSize)
 {
