@@ -4,10 +4,13 @@
 #include "erosion_and_dilation.h"
 #include "detect_skew_angle.h"
 #include "rotation_image.h"
+#include "add_borders.h"
+#include "extract_tables.h"
 
 int main(int argc,char *argv[])
 {
-    // Read a original image
+    //Read a original image
+#if 1
     Mat OriginalImage;
     cout << "Read original image unchanged" << endl;
     OriginalImage = imread(argv[1], IMREAD_UNCHANGED);
@@ -17,6 +20,7 @@ int main(int argc,char *argv[])
         return -1;
     }
     ShowImage(OriginalImage, "Original Image");
+#endif
 
     /* -------------------------------------------------------------- */
 
@@ -66,9 +70,41 @@ int main(int argc,char *argv[])
 
     /* -------------------------------------------------------------- */
 
-    //Detect image skew angle and rotation it
+    //Rotation image
+#if 0
+    Detect image skew angle and rotation it
     double SkewAngle = CalculateSkew(OriginalImage);
     RotationImage(OriginalImage, SkewAngle);
+#endif
+
+    /* -------------------------------------------------------------- */
+
+    //Add borders
+#if 0
+    Mat OriginalImage;
+    cout << "Read original image color" << endl;
+    OriginalImage = imread(argv[1], IMREAD_COLOR);
+    if( !OriginalImage.data )
+    {
+        cout << "Read a image fail !" << endl;
+        return -1;
+    }
+    ShowImage(OriginalImage, "Original image in color");
+
+    Mat DstImage;
+    Mat &DstImageQuote = DstImage;
+    Scalar ColorRGBValue( 0, 0, 0);
+    AddImageBordersWithConstantColor(OriginalImage, DstImageQuote, ColorRGBValue);
+    ShowImage(DstImageQuote, "Add borders image");
+
+#endif
+
+    /* -------------------------------------------------------------- */
+
+    //Extract tables
+#if 1
+    ExtractTables(OriginalImage);
+#endif
 
     /* -------------------------------------------------------------- */
 
